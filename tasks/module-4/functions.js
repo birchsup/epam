@@ -7,22 +7,29 @@
 
 /**
  * write function that will do sum for two numbers
- *
+ * @example
+ * console.log(sum(1, 3)) //4
+ * console.log(sum(-1, 1)) //0
  */
 function sum(a, b) {}
 
 /**
- * write function that returns firstName and lastName of a given object
- * {
+ * write function that returns firstName and lastName of a given object that contains firstName and lastName
+ * @example
+ * const person = {
  *    firstName: "John"
  *    lastName: "Dou"
  * }
+ * console.log(getFullName(person)) // John Dou
  */
 function getFullName(object) {}
 
 /**
  * write function that checks if number is odd
  * true if odd, false if even
+ * @example
+ * console.log(isOdd(2)) // false
+ * console.log(isOdd(3)) // true
  */
 function isOdd(n) {}
 
@@ -57,6 +64,9 @@ function getUser(firstName, lastName, age) {}
  * write function that calculates total path traveled.
  * path represented as array of objects with field distance and direction
  * e.g [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}]
+ * @example
+ * const travel = [{direction: "Kiyv - Minsk", distance: 567}, {direction: "Kiyv - Paris", distance: 2402}];
+ * console.log(getTotalPath(travel)) //2969
  */
 
 function getTotalPath(path) {}
@@ -65,8 +75,6 @@ function getTotalPath(path) {}
  * write a function that calculates a final price considering the Amount
  * reduced by discount percentage(hint: you need to use the Closure here)
  * JS Closures: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
- * @param {percentage} num
- * @param {amount} num
  * @example
  * const discount10 = discountFunction(10);
  * console.log(discount10(90)); // 81
@@ -80,8 +88,8 @@ function discountFunction(percentage) {
 /**
  * Write the methods inside the given objects that:
  * 1. console logs keys of the given object (please use for..in cycle)
- * 2. returns the string 'My name is John Doe and I am 25 years old. My best friend is Daniel'
- * reffering to the data stored in the object. The string should be constructed using the properties from the object
+ * 2. returns the string 'My name is John Doe, and I am 25 years old. My best friend is Daniel'
+ * referring to the data stored in the object. The string should be constructed using the properties from the object
  */
 
 const myObject = {
