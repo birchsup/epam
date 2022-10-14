@@ -36,7 +36,7 @@ function isOdd(n) {}
 /**
  * write function that returns shortest of the words in the given array
  * @example
- * console.log(getShortest(["one", "two", "three"])) // one
+ * console.log(getShortest(["one", "three", "four"])) // one
  */
 function getShortest(wordArray) {}
 

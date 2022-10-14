@@ -40,7 +40,7 @@ describe('isOdd', () => {
 
 describe('getShortest', () => {
   it('should return "one" if passing ["one", "two", "three"]', () => {
-    expect(getShortest(['one', 'two', 'three'])).to.equal('one');
+    expect(getShortest(['one', 'three', 'four'])).to.equal('one');
   });
 
   it('should return "x" if passing ["one", "two", "three", "x"]', () => {
