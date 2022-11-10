@@ -15,6 +15,11 @@ describe('person', () => {
   it('should have getFullName method', () => {
     expect(person.getFullName()).to.equal(`${person.firstName} ${person.lastName}`);
   });
+
+  it('instance created correctly', () => {
+    expect(person.firstName, "firstName isn't passed to Person").not.to.equal(undefined);
+    expect(person.lastName, "lastName isn't passed to Person").not.to.equal(undefined);
+  });
 });
 
 describe('student', () => {
@@ -36,5 +41,11 @@ describe('student', () => {
 
   it('should have getFullName method', () => {
     expect(student.getFullName()).to.equal(`${student.firstName} ${student.lastName}`);
+  });
+
+  it('instance created correctly', () => {
+    expect(student.firstName, "firstName isn't passed to Student").not.to.equal(undefined);
+    expect(student.lastName, "lastName isn't passed to Student").not.to.equal(undefined);
+    expect(student.grade, "grade isn't passed to Student").not.to.equal(undefined);
   });
 });
