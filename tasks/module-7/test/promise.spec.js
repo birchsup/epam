@@ -1,5 +1,10 @@
 const { describe, it } = require('mocha');
-const { expect } = require('chai');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+
+const expect = chai.expect;
+chai.use(chaiAsPromised);
+chai.should();
 
 const { promiseResolve, promiseReject, fullPromise, promisesChaining, getAnimals } = require('../promises');
 const { asyncPromiseResolve, asyncPromiseReject, asyncPromiseAll } = require('../asyncAwait');
@@ -17,11 +22,12 @@ describe('Promises', () => {
     }
   });
 
-  it('TASK-3: should resolve or reject the promise considering the input parameter', async () => {
-    const param = !!Math.round(Math.random() * 1);
-    return fullPromise(param)
-      .then(result => expect(result).to.equal('Resolved!'))
-      .catch(result => expect(result).to.equal('Rejected!'));
+  it('TASK-3: should resolve when param === true with "Resolved!" string', () => {
+    return fullPromise(true).should.eventually.become('Resolved!');
+  });
+
+  it('TASK-3: should reject when param === false with "Rejected!" string', () => {
+    return fullPromise(false).should.be.rejectedWith('Rejected!');
   });
 
   it('TASK-4: should chain promises', async () => {
