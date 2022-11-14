@@ -50,8 +50,8 @@ function promisesChaining() {
 /**
  * Task-5: Implement a function getAnimals() that will return the result of
  * 3 promises: getDogs(), getCats() and getBirds() from the './utils/utilPromises' file;
- * getAnimals() -> ["dogs", "cats", "birds"]
- * @returns {Promise<"["dogs", "cats", "birds"]">}
+ * getAnimals() -> ['dogs', 'cats', 'birds']
+ * @returns {Promise<"['dogs', 'cats', 'birds']">}
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
  * do NOT use async/await syntax here
  */
