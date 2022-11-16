@@ -30,6 +30,10 @@ describe('Calculate a century by year', () => {
       expect(centuryFromYear(result[0])).to.equal(result[1]);
     });
   });
+
+  it('should return 0 if not a number is passed', () => {
+    expect(centuryFromYear('ololo'), 'result is not equal to 0').to.equal(0);
+  });
 });
 
 describe('Calculate count of the provided char in the string', () => {

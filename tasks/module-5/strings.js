@@ -11,7 +11,7 @@
 function reverseString(str) {}
 
 /**
- * Calculate a century by given year if a number is passed
+ * Calculate a century by given year if a number is passed (should return 0 if not a number is passed)
  * @param {number} year
  * @return {num} century
  * @example
