@@ -31,8 +31,11 @@ describe('Task 3 - discount', () => {
     expect(calculateDiscount(350), '350 ransom should produce 0% discount').to.equal(0);
     expect(calculateDiscount(351), '351 ransom should produce 15% discount').to.equal(15);
     expect(calculateDiscount(400), '400 ransom should produce 15% discount').to.equal(15);
+    expect(calculateDiscount(1350), '1350 ransom should produce 15% discount').to.equal(15);
     expect(calculateDiscount(1351), '1351 ransom should produce 30% discount').to.equal(30);
     expect(calculateDiscount(2000), '2000 ransom should produce 30% discount').to.equal(30);
+    expect(calculateDiscount(2700), '2700 ransom should produce 30% discount').to.equal(30);
+    expect(calculateDiscount(2701), '2701 ransom should produce 45% discount').to.equal(45);
     expect(calculateDiscount(6000), '6000 ransom should produce 45% discount').to.equal(45);
   });
 });
