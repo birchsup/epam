@@ -30,6 +30,7 @@ function getFullName(object) {}
  * @example
  * console.log(isOdd(2)) // false
  * console.log(isOdd(3)) // true
+ * hint: try using Remainder: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder operator
  */
 function isOdd(n) {}
 

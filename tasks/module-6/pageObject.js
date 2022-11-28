@@ -14,8 +14,8 @@
  * 'this.name' as a parameter
  * 6. Component class should accept one argument 'type'
  * (will receive values such as 'footer' and 'header')
- * 7. BasePage should have getters footer() and header() that will return new Component's
- * passing 'footer' and 'header' appropriately
+ * 7. BasePage should have getters 'footer()' and 'header()' that will return new Component
+ * passing 'footer' and 'header' respectively ( e.g return new Component('footer') )
  * 8. Component should have review() method that will return the string "I can review ${this.type}"
  */
 
