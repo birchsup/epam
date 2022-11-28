@@ -5,7 +5,7 @@ const { reverseString, centuryFromYear, strCount, truncateString, replace10, rep
 
 describe('Task 1 - Reverse a string', () => {
   it('should throw an error if parameter is not a string', () => {
-    expect(reverseString(123)).to.equal('This is not a string!');
+    expect(() => reverseString(123)).to.throw('This is not a string!');
   });
 
   it("should reverse a string 'hello' ", () => {

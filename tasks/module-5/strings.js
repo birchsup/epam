@@ -1,6 +1,6 @@
 /**
  * 1. Write a method to reverse a string;
- * 2. The method should return the string 'This is not a string!' if trying to pass a number
+ * 2. The method should throw an error 'This is not a string!' if trying to pass a number
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
  * @param {string} str
  * @return {string} reversed string
