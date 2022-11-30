@@ -52,8 +52,8 @@ describe('Async/await syntax', () => {
     expect(result).to.equal('Rejected! with async await');
   });
 
-  it('TASK-3: should return array of animals using async/await syntax', async () => {
+  it('TASK-3: should return array of animals in Uppercase using async/await syntax', async () => {
     const result = await asyncPromiseAll();
-    expect(result).to.have.members(['dogs', 'cats', 'birds']);
+    expect(result).to.have.members(['DOGS', 'CATS', 'BIRDS']);
   });
 });
