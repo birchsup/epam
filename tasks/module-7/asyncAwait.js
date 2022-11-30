@@ -29,12 +29,11 @@ async function asyncPromiseReject() {
 }
 
 /**
- * TASK-3: Return the result of 3 promises:
- * getDogs(), getCats() and getBirds() from the './utils/utilPromises' file
- * using async/await syntax;
- * Promise.all - isn't allowed to use;
- * asyncPromiseAll() -> ['dogs', 'cats', 'birds']
- * @returns {Promise<"['dogs', 'cats', 'birds']">}
+ * TASK-3:
+ * 1. Get the results array of 3 promises: getDogs(), getCats() and getBirds() from the './utils/utilPromises' file using await syntax;
+ * 2. Modify the array ['dogs', 'cats', 'birds'] -> ['DOGS', 'CATS', ''BIRDS]
+ * 3. Return the modified array
+ * @returns {Promise<"['DOGS', 'CATS', 'BIRDS']">}
  */
 async function asyncPromiseAll() {
   //PLACE YOUR CODE HERE:
