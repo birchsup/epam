@@ -15,11 +15,7 @@ describe('Promises', () => {
   });
 
   it('TASK-2: should create a promise that will be rejected', async () => {
-    try {
-      expect(await promiseReject(), 'You promise is not rejected').not.to.equal('Rejected!');
-    } catch (e) {
-      expect(e).to.equal('Rejected!');
-    }
+    return promiseReject().catch(e => expect(e).to.equal('Rejected!'));
   });
 
   it('TASK-3: should resolve when param === true with "Resolved!" string', () => {
@@ -36,7 +32,7 @@ describe('Promises', () => {
 
   it('TASK-5: should return array of animals practicing Promise.all() method', async () => {
     return getAnimals().then(results => {
-      expect(results).to.have.members(['dogs', 'cats', 'birds']);
+      expect(results).to.have.members(['DOGS', 'CATS', 'BIRDS']);
     });
   });
 });
