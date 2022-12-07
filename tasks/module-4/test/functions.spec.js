@@ -20,21 +20,21 @@ describe('sum', () => {
 
 describe('getFullName', () => {
   it('should return "John Dou" if passing "John" and "Dou"', () =>
-    expect(
-      getFullName({
-        firstName: 'John',
-        lastName: 'Dou',
-      }),
-    ).to.equal('John Dou'));
+    expect(getFullName({ firstName: 'John', lastName: 'Dou' })).to.equal('John Dou'));
+
+  it('should return "Brendan Eich" if passing "Brendan" and "Eich"', () =>
+    expect(getFullName({ firstName: 'Brendan', lastName: 'Eich' })).to.equal('Brendan Eich'));
 });
 
 describe('isOdd', () => {
-  it('should return false if passing 2', () => {
+  it('should return false if passing even value', () => {
     expect(isOdd(2)).to.equal(false);
+    expect(isOdd(10)).to.equal(false);
   });
 
-  it('should return true if passing 3', () => {
+  it('should return true if passing odd value', () => {
     expect(isOdd(3)).to.equal(true);
+    expect(isOdd(11)).to.equal(true);
   });
 });
 
@@ -136,6 +136,15 @@ describe('Object methods', () => {
   });
 
   it('should return the provided string', () => {
-    expect(myObject.call()).to.equal('My name is John Doe and I am 25 years old. My best friend is Daniel');
+    expect(myObject.call()).to.equal('My name is John Doe, and I am 25 years old. My best friend is Daniel');
+  });
+
+  it('should return the provided string', () => {
+    myObject.name = 'Brendan';
+    myObject.lastName = 'Eich';
+    myObject.age = 61;
+    myObject.friends[2] = 'Elon';
+
+    expect(myObject.call()).to.equal('My name is Brendan Eich, and I am 61 years old. My best friend is Elon');
   });
 });
