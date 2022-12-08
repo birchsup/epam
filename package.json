@@ -28,16 +28,17 @@
     "Oleksandr_Halichenko@epam.com"
   ],
   "dependencies": {
-    "@types/chai": "4.3.3",
-    "@types/mocha": "9.1.1",
-    "@types/node": "16.11.59",
+    "@types/chai": "4.3.4",
+    "@types/chai-as-promised": "7.1.5",
+    "@types/mocha": "10.0.1",
+    "@types/node": "16.18.6",
     "@types/sinon": "10.0.13",
-    "chai": "4.3.6",
-    "chai-as-promised": "^7.1.1",
-    "husky": "8.0.1",
-    "mocha": "10.0.0",
+    "chai": "4.3.7",
+    "chai-as-promised": "7.1.1",
+    "husky": "8.0.2",
+    "mocha": "10.1.0",
     "node-fetch": "2.6.7",
-    "prettier": "2.7.1",
+    "prettier": "2.8.1",
     "sinon": "14.0.0"
   },
   "engines": {
