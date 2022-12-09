@@ -3,6 +3,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const { sum, getFullName, isOdd, getShortest, getGoogle, getUser, getTotalPath, discountFunction, myObject } = require('../functions');
+const { evenValues, oddValues, fullNames } = require('./data');
 
 describe('sum', () => {
   it('should return 3 if passing 1 and 2', () => {
@@ -19,22 +20,26 @@ describe('sum', () => {
 });
 
 describe('getFullName', () => {
-  it('should return "John Dou" if passing "John" and "Dou"', () =>
-    expect(
-      getFullName({
-        firstName: 'John',
-        lastName: 'Dou',
-      }),
-    ).to.equal('John Dou'));
+  fullNames.forEach(name => {
+    const [firstName, lastName] = name.split(' ');
+
+    it(`should return "${name}" if passing "${firstName}" and "${lastName}"`, () => {
+      expect(getFullName({ firstName, lastName })).to.equal(name);
+    });
+  });
 });
 
 describe('isOdd', () => {
-  it('should return false if passing 2', () => {
-    expect(isOdd(2)).to.equal(false);
+  evenValues.forEach(value => {
+    it(`should return false if passing ${value}`, () => {
+      expect(isOdd(value)).to.equal(false);
+    });
   });
 
-  it('should return true if passing 3', () => {
-    expect(isOdd(3)).to.equal(true);
+  oddValues.forEach(value => {
+    it(`should return true if passing ${value}`, () => {
+      expect(isOdd(value)).to.equal(true);
+    });
   });
 });
 
@@ -136,6 +141,17 @@ describe('Object methods', () => {
   });
 
   it('should return the provided string', () => {
-    expect(myObject.call()).to.equal('My name is John Doe and I am 25 years old. My best friend is Daniel');
+    expect(myObject.call()).to.equal('My name is John Doe, and I am 25 years old. My best friend is Daniel');
+  });
+
+  it('should return the provided string', () => {
+    sandbox = sinon.createSandbox();
+    sandbox.stub(myObject, 'name').value('Brendan');
+    sandbox.stub(myObject, 'lastName').value('Eich');
+    sandbox.stub(myObject, 'age').value(61);
+    sandbox.stub(myObject, 'friends').value(['', '', 'Elon']);
+
+    expect(myObject.call()).to.equal('My name is Brendan Eich, and I am 61 years old. My best friend is Elon');
+    sandbox.restore();
   });
 });

@@ -17,7 +17,7 @@ function sum(a, b) {}
  * write function that returns firstName and lastName of a given object that contains firstName and lastName
  * @example
  * const person = {
- *    firstName: "John"
+ *    firstName: "John",
  *    lastName: "Dou"
  * }
  * console.log(getFullName(person)) // John Dou
@@ -54,8 +54,8 @@ function getGoogle(n) {}
  * @example
  * getUser("John", "Dou", 42) should return
  * {
- *    firstName: "John"
- *    lastName: "Dou"
+ *    firstName: "John",
+ *    lastName: "Dou",
  *    age: 42
  * }
  */

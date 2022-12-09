@@ -5,7 +5,7 @@
  * @param {string} str
  * @return {string} reversed string
  * @example
- * console.log(reverseString('hello)) // 'olleh'
+ * console.log(reverseString('hello')) // 'olleh'
  * console.log(reverseString(123)) // 'This is not a string!'
  */
 function reverseString(str) {}
