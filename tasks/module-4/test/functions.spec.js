@@ -3,6 +3,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const { sum, getFullName, isOdd, getShortest, getGoogle, getUser, getTotalPath, discountFunction, myObject } = require('../functions');
+const { evenValues, oddValues, fullNames } = require('./data');
 
 describe('sum', () => {
   it('should return 3 if passing 1 and 2', () => {
@@ -19,22 +20,26 @@ describe('sum', () => {
 });
 
 describe('getFullName', () => {
-  it('should return "John Dou" if passing "John" and "Dou"', () =>
-    expect(getFullName({ firstName: 'John', lastName: 'Dou' })).to.equal('John Dou'));
+  fullNames.forEach(name => {
+    const [firstName, lastName] = name.split(' ');
 
-  it('should return "Brendan Eich" if passing "Brendan" and "Eich"', () =>
-    expect(getFullName({ firstName: 'Brendan', lastName: 'Eich' })).to.equal('Brendan Eich'));
+    it(`should return "${name}" if passing "${firstName}" and "${lastName}"`, () => {
+      expect(getFullName({ firstName, lastName })).to.equal(name);
+    });
+  });
 });
 
 describe('isOdd', () => {
-  it('should return false if passing even value', () => {
-    expect(isOdd(2)).to.equal(false);
-    expect(isOdd(10)).to.equal(false);
+  evenValues.forEach(value => {
+    it(`should return false if passing ${value}`, () => {
+      expect(isOdd(value)).to.equal(false);
+    });
   });
 
-  it('should return true if passing odd value', () => {
-    expect(isOdd(3)).to.equal(true);
-    expect(isOdd(11)).to.equal(true);
+  oddValues.forEach(value => {
+    it(`should return true if passing ${value}`, () => {
+      expect(isOdd(value)).to.equal(true);
+    });
   });
 });
 
@@ -140,11 +145,13 @@ describe('Object methods', () => {
   });
 
   it('should return the provided string', () => {
-    myObject.name = 'Brendan';
-    myObject.lastName = 'Eich';
-    myObject.age = 61;
-    myObject.friends[2] = 'Elon';
+    sandbox = sinon.createSandbox();
+    sandbox.stub(myObject, 'name').value('Brendan');
+    sandbox.stub(myObject, 'lastName').value('Eich');
+    sandbox.stub(myObject, 'age').value(61);
+    sandbox.stub(myObject, 'friends').value(['', '', 'Elon']);
 
     expect(myObject.call()).to.equal('My name is Brendan Eich, and I am 61 years old. My best friend is Elon');
+    sandbox.restore();
   });
 });
