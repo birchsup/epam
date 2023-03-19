@@ -6,7 +6,29 @@
  * do..while -> doFactorial: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while
  */
 let forFactorial, whileFactorial, doFactorial;
-const n = 10; // 10! = 3628800
+const n = 10
+
+forFactorial = 1;
+
+for (let i = n; i >= 1; i--) {
+  forFactorial *= i;
+}
+
+doFactorial = 1;
+  i = n;
+  do {
+    doFactorial *= i;
+    i--;
+  } while (i >= 1);
+
+whileFactorial = 1;
+  i = n;
+  while (i >= 1) {
+    whileFactorial *= i;
+    i--;
+  }
+
+
 
 /** Task: 2
  * return the concatenated string from an array of substring
@@ -15,6 +37,12 @@ const n = 10; // 10! = 3628800
  */
 let str;
 const substr = ['I', ' love', ' JS'];
+str = '';
+
+for (let i = 0; i < substr.length; i++){
+  str +=substr[i]
+}
+// return str;
 
 /** Task: 3
  * calculate a total of income of certain person
@@ -28,6 +56,12 @@ const personIncomes = {
   interestOnDeposit: 250,
   otherExpences: -300,
 };
+
+totalIncome = 0;
+
+for (let key in personIncomes) {
+  totalIncome += personIncomes[key];
+}
 
 module.exports = {
   forFactorial,
