@@ -21,10 +21,32 @@
  * 2. Check yourself by running "npm run test:nodejs"
  *
  */
-const fs = require('fs/promises');
+// const fs = require('fs/promises');
+const fs = require('fs');
 
 const jsonParser = async () => {
-  //put your code here
+  let x = fs.readFile('./tasks/module-8/utils/test.json', 'utf8', (err, data) => {
+    if (err) {
+     
+      throw err;
+    };
+
+    const jsonData = JSON.parse(data);
+
+    let newObj = jsonData.list.entries.map(entry => ({
+      docId: `http://doc.epam.com/${entry.entry.name.slice(0, -5)}`,
+    }))
+
+    
+
+    fs.writeFile('./tasks/module-8/parsed.json', JSON.stringify(newObj), (err) => {
+      if (err) {
+       
+        throw err;
+      }
+    
+    });
+  });
 };
 
 module.exports = {
