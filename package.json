@@ -25,7 +25,8 @@
   },
   "authors": [
     "Dzmitry_Shaplyka@epam.com",
-    "Oleksandr_Halichenko@epam.com"
+    "Oleksandr_Halichenko@epam.com",
+    "Dmitrii_Sadovnikov@epam.com"
   ],
   "dependencies": {
     "@types/chai": "4.3.4",

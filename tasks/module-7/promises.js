@@ -8,7 +8,10 @@ const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./u
  */
 
 function promiseResolve() {
-  //PLACE YOUR CODE HERE:
+  const myPromise = new Promise((resolve, reject) => {
+    resolve("Resolved!");
+  });  
+  return myPromise
 }
 
 /**
@@ -19,6 +22,11 @@ function promiseResolve() {
  */
 
 function promiseReject() {
+  const myPromise = new Promise((resolve, reject) => {
+    reject("Rejected!");
+    
+  });  
+  return myPromise
   //PLACE YOUR CODE HERE:
 }
 
@@ -30,6 +38,14 @@ function promiseReject() {
  */
 
 function fullPromise(param) {
+  const myPromise = new Promise((resolve, reject) => {
+    if (param === true) {
+      resolve("Resolved!");
+    } else {
+      reject("Rejected!");
+    };
+  });  
+  return myPromise
   //PLACE YOUR CODE HERE:
 }
 
@@ -42,10 +58,22 @@ function fullPromise(param) {
 function promisesChaining() {
   let chainingResult = '';
 
-  //PLACE YOUR CODE BETWEEN THIS LINE:
+  let a = firstPromise()
+    .then(() => {
+      return secondPromise();
+    })
+    .then(() => {
+      chainingResult = "Promises chained";
+      console.log(chainingResult);
 
-  //AND THIS ONE
+      return "Promises chained"
+    });
+
+    return a;
+    
 }
+
+
 
 /**
  * Task-5:
@@ -59,9 +87,21 @@ function promisesChaining() {
  */
 
 function getAnimals() {
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-  //AND THIS ONE
+  
+  return Promise.all([getDogs(), getCats(), getBirds()])
+  .then((results) => {
+    return results.map((animal) => animal.toUpperCase());
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 }
+
+getAnimals().then((result) => {
+console.log(result);
+});
+  
+
 
 module.exports = {
   promiseResolve,

@@ -14,7 +14,7 @@ describe('Fetch method', () => {
   });
 
   beforeEach(() => {
-    responseJson = require('../response.json');
+    responseJson = require('../../../response.json');
   });
 
   it('should receive items', () => {
