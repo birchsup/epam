@@ -1,3 +1,7 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable max-len */
+/* eslint-disable no-plusplus */
 /**
  * Learning materials:
  * Function declaration: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function
@@ -12,7 +16,7 @@
  * console.log(sum(-1, 1)) //0
  */
 function sum(a, b) {
-  return a+b;
+  return a + b;
 }
 
 /**
@@ -25,8 +29,7 @@ function sum(a, b) {
  * console.log(getFullName(person)) // John Dou
  */
 function getFullName(object) {
-  return object.firstName + ' ' + object.lastName;
-
+  return `${object.firstName} ${object.lastName}`;
 }
 
 /**
@@ -54,7 +57,6 @@ function getShortest(wordArray) {
     }
   }
   return shortestWord;
-
 }
 
 /**
@@ -63,7 +65,7 @@ function getShortest(wordArray) {
  * console.log(getGoogle(5)) // gooooogle
  */
 function getGoogle(n) {
-  return 'g' + 'o'.repeat(n) + 'gle';
+  return `g${'o'.repeat(n)}gle`;
 }
 
 /**
@@ -77,13 +79,12 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
-
+function getUser(firstName = null, lastName = null, age = null) {
   return {
-    firstName: firstName || null,
-    lastName: lastName || null,
-    age: age || null
-  }
+    firstName,
+    lastName,
+    age,
+  };
 }
 
 /**
@@ -115,9 +116,10 @@ function getTotalPath(path) {
 
 function discountFunction(percentage) {
   return function (amount) {
-  let discount = amount * (percentage / 100);
-  let finalPrice = amount - discount;
-  return finalPrice;};
+    const discount = amount * (percentage / 100);
+    const finalPrice = amount - discount;
+    return finalPrice;
+  };
 }
 
 /**
@@ -133,15 +135,15 @@ const myObject = {
   age: 25,
   friends: ['Mike', 'Alan', 'Daniel'],
   keys() {
-    for (let key in this) {
+    for (const key in this) {
       console.log(key);
     }
-    //write your code here
+    // write your code here
   },
   call() {
     return `My name is ${this.name} ${this.lastName}, and I am ${this.age} years old. My best friend is ${this.friends[2]}`;
 
-    //write your code here
+    // write your code here
   },
 };
 
