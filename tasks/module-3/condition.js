@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /** Task: 1
  * The system receives two params x and y.
  * Implement the logic when z equal to sum of x and y in case if y less than 10
@@ -8,25 +9,20 @@
  */
 function taskA(x, y) {
   let z1;
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-if(y<10){
-  z1 = x + y;
-} else{
-  z1 = x * y;
-}
-  //AND THIS ONE:
+  // PLACE YOUR CODE BETWEEN THIS LINE:
+  if (y < 10) {
+    z1 = x + y;
+  } else {
+    z1 = x * y;
+  }
+  // AND THIS ONE:
   return z1;
 }
 
 function taskB(x, y) {
-  let z2;
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-  if(y>=10){
-    z2 = x * y;
-  }else{
-    z2 = x+y;
-  }
-  //AND THIS ONE:
+  // PLACE YOUR CODE BETWEEN THIS LINE:
+  const z2 = (y >= 10) ? x * y : x + y;
+  // AND THIS ONE:
   return z2;
 }
 
@@ -40,24 +36,24 @@ function taskB(x, y) {
 
 function calc(operator, alpha, beta) {
   let task2;
-  //PLACE YOUR CODE BETWEEN THIS LINE:
+  // PLACE YOUR CODE BETWEEN THIS LINE:
   switch (operator) {
-    case "add":
+    case 'add':
       task2 = alpha + beta;
       break;
-    case "subtract":
+    case 'subtract':
       task2 = alpha - beta;
       break;
-    case "multiply":
+    case 'multiply':
       task2 = alpha * beta;
       break;
-    case "divide":
+    case 'divide':
       task2 = alpha / beta;
       break;
     default:
-      task2 = "Invalid operator";
+      task2 = 'Invalid operator';
   }
-  //AND THIS ONE:
+  // AND THIS ONE:
   return task2;
 }
 
@@ -75,19 +71,19 @@ function calc(operator, alpha, beta) {
 
 function calculateDiscount(ransom) {
   let discount;
-  //PLACE YOUR CODE BETWEEN THIS LINE:
+  // PLACE YOUR CODE BETWEEN THIS LINE:
   if (ransom >= 0 && ransom <= 350) {
     discount = 0;
-  } else if (ransom <= 1350) {
+  } else if (ransom >= 351 && ransom <= 1350) {
     discount = 15;
-  } else if (ransom <= 2700) {
+  } else if (ransom >= 1351 && ransom <= 2700) {
     discount = 30;
-  } else if (ransom <= 6500) {
+  } else if (ransom >= 2701 && ransom <= 6500) {
     discount = 45;
   } else {
-    discount = "Invalid ransom amount";
+    discount = 'Invalid ransom amount';
   }
-  //AND THIS ONE:
+  // AND THIS ONE:
   return discount;
 }
 
@@ -97,4 +93,3 @@ module.exports = {
   calc,
   calculateDiscount,
 };
-

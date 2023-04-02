@@ -1,3 +1,7 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-undef */
+/* eslint-disable no-plusplus */
 /** Task: 1
  * implement factorial algorithm using for, while, do..while operators
  * assign the result to corresponding variable
@@ -5,8 +9,9 @@
  * while -> whileFactorial: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
  * do..while -> doFactorial: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/do...while
  */
-let forFactorial, whileFactorial, doFactorial;
-const n = 10
+let forFactorial; let whileFactorial; let
+  doFactorial;
+const n = 10;
 
 forFactorial = 1;
 
@@ -15,20 +20,18 @@ for (let i = n; i >= 1; i--) {
 }
 
 doFactorial = 1;
-  i = n;
-  do {
-    doFactorial *= i;
-    i--;
-  } while (i >= 1);
+i = n;
+do {
+  doFactorial *= i;
+  i--;
+} while (i >= 1);
 
 whileFactorial = 1;
-  i = n;
-  while (i >= 1) {
-    whileFactorial *= i;
-    i--;
-  }
-
-
+i = n;
+while (i >= 1) {
+  whileFactorial *= i;
+  i--;
+}
 
 /** Task: 2
  * return the concatenated string from an array of substring
@@ -39,10 +42,9 @@ let str;
 const substr = ['I', ' love', ' JS'];
 str = '';
 
-for (let i = 0; i < substr.length; i++){
-  str +=substr[i]
+for (let i = 0; i < substr.length; i++) {
+  str += substr[i];
 }
-// return str;
 
 /** Task: 3
  * calculate a total of income of certain person
@@ -59,7 +61,7 @@ const personIncomes = {
 
 totalIncome = 0;
 
-for (let key in personIncomes) {
+for (const key in personIncomes) {
   totalIncome += personIncomes[key];
 }
 
