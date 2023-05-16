@@ -9,16 +9,18 @@
 function taskA(x, y) {
   let z1;
   //PLACE YOUR CODE BETWEEN THIS LINE:
-
+if(y<10){
+  z1 = x + y;
+} else{
+  z1 = x * y;
+}
   //AND THIS ONE:
   return z1;
 }
 
 function taskB(x, y) {
-  let z2;
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-
-  //AND THIS ONE:
+  let z2 = (condition) ? (x * y) : (x + y);
+  
   return z2;
 }
 
@@ -33,7 +35,22 @@ function taskB(x, y) {
 function calc(operator, alpha, beta) {
   let task2;
   //PLACE YOUR CODE BETWEEN THIS LINE:
-
+  switch (operator) {
+    case "add":
+      task2 = alpha + beta;
+      break;
+    case "subtract":
+      task2 = alpha - beta;
+      break;
+    case "multiply":
+      task2 = alpha * beta;
+      break;
+    case "divide":
+      task2 = alpha / beta;
+      break;
+    default:
+      task2 = "Invalid operator";
+  }
   //AND THIS ONE:
   return task2;
 }
@@ -53,7 +70,17 @@ function calc(operator, alpha, beta) {
 function calculateDiscount(ransom) {
   let discount;
   //PLACE YOUR CODE BETWEEN THIS LINE:
-
+  if (ransom >= 0 && ransom <= 350) {
+    discount = 0;
+  } else if (ransom >= 351 && ransom <= 1350) {
+    discount = 15;
+  } else if (ransom >= 1351 && ransom <= 2700) {
+    discount = 30;
+  } else if (ransom >= 2701 && ransom <= 6500) {
+    discount = 45;
+  } else {
+    discount = "Invalid ransom amount";
+  }
   //AND THIS ONE:
   return discount;
 }
