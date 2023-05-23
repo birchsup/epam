@@ -9,17 +9,40 @@
  * 3) method getFullName
  */
 //put your code here
+class Person {
+  constructor({ firstName, lastName }) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
 
 /**
  * implement class Student that extends Person with:
- * 1) property grade
- * 2) constructor that pass grade to the object
+@@ -17,9 +27,22 @@
  * 3) method getGrade that returns property grade
  */
 //put your code here
+class Student extends Person {
+  constructor({ grade, ...rest }) {
+    super({ ...rest });
 
-const person = ''; //create instance of class person
-const student = ''; //create instance of class student
+    this.grade = grade;
+  }
+
+  getGrade() {
+    return `${this.grade}`;
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const person = new Person({ firstName: 'dims', lastName: 'sad' }); //create instance of class person
+const student = new Student({ firstName: 'dims', lastName: 'sad', grade: '5' }); //create instance of class student
 
 module.exports = {
   person,

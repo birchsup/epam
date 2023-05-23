@@ -19,11 +19,44 @@
  * 8. Component should have review() method that will return the string "I can review ${this.type}"
  */
 
-class BasePage {}
+class BasePage {
+  constructor(url) {
+    this.url = url;
+  }
 
-class LoginPage {}
+  open(pageName) {
+    return `Open this ${this.url}/${pageName}`;
+  }
 
-class Component {}
+  get footer() {
+    return new Component('footer');
+  }
+
+  get header() {
+    return new Component('header');
+  }
+}
+
+class LoginPage extends BasePage {
+  constructor(url, name) {
+    super(url);
+    this.name = name;
+  }
+
+  open() {
+    return `Open this ${this.url}/${this.name}`;
+  }
+}
+
+class Component {
+  constructor(type) {
+    this.type = type;
+  }
+
+  review() {
+    return `I can review ${this.type}`;
+  }
+}
 
 module.exports = {
   BasePage,
