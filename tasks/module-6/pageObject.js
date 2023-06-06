@@ -20,46 +20,46 @@
  */
 
 class BasePage {
-  constructor(url) {
-    this.url = url;
+  constructor (url) {
+    this.url = url
   }
 
-  open(pageName) {
-    return `Open this ${this.url}/${pageName}`;
+  open (pageName) {
+    return `Open this ${this.url}/${pageName}`
   }
 
-  get footer() {
-    return new Component('footer');
+  get footer () {
+    return new Component('footer')
   }
 
-  get header() {
-    return new Component('header');
+  get header () {
+    return new Component('header')
   }
 }
 
 class LoginPage extends BasePage {
-  constructor(url, name) {
-    super(url);
-    this.name = name;
+  constructor (url, name) {
+    super(url)
+    this.name = name
   }
 
-  open() {
-    return `Open this ${this.url}/${this.name}`;
+  open () {
+    return super.open(this.name)
   }
 }
 
 class Component {
-  constructor(type) {
-    this.type = type;
+  constructor (type) {
+    this.type = type
   }
 
-  review() {
-    return `I can review ${this.type}`;
+  review () {
+    return `I can review ${this.type}`
   }
 }
 
 module.exports = {
   BasePage,
   LoginPage,
-  Component,
-};
+  Component
+}
