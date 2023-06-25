@@ -1,4 +1,4 @@
-const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./utils/utilPromises');
+const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./utils/utilPromises')
 
 /**
  * Task-1: Create a promise with the resolve state
@@ -7,8 +7,11 @@ const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./u
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
  */
 
-function promiseResolve() {
-  //PLACE YOUR CODE HERE:
+function promiseResolve () {
+  const myPromise = new Promise((resolve, reject) => {
+    resolve('Resolved!')
+  })
+  return myPromise
 }
 
 /**
@@ -18,8 +21,12 @@ function promiseResolve() {
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject
  */
 
-function promiseReject() {
-  //PLACE YOUR CODE HERE:
+function promiseReject () {
+  const myPromise = new Promise((resolve, reject) => {
+    reject('Rejected!')
+  })
+  return myPromise
+  // PLACE YOUR CODE HERE:
 }
 
 /**
@@ -29,8 +36,16 @@ function promiseReject() {
  * hint: use new Promise()
  */
 
-function fullPromise(param) {
-  //PLACE YOUR CODE HERE:
+function fullPromise (param) {
+  const myPromise = new Promise((resolve, reject) => {
+    if (param === true) {
+      resolve('Resolved!')
+    } else {
+      reject('Rejected!')
+    };
+  })
+  return myPromise
+  // PLACE YOUR CODE HERE:
 }
 
 /**
@@ -39,12 +54,21 @@ function fullPromise(param) {
  * Please do the chaining inside of the promisesChaining function (please do NOT use async/await)
  */
 
-function promisesChaining() {
-  let chainingResult = '';
+function promisesChaining () {
+  let chainingResult = ''
 
-  //PLACE YOUR CODE BETWEEN THIS LINE:
+  const a = firstPromise()
+    .then(() => {
+      return secondPromise()
+    })
+    .then(() => {
+      chainingResult = 'Promises chained'
+      console.log(chainingResult)
 
-  //AND THIS ONE
+      return 'Promises chained'
+    })
+
+  return a
 }
 
 /**
@@ -58,15 +82,24 @@ function promisesChaining() {
  * do NOT use async/await syntax here
  */
 
-function getAnimals() {
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-  //AND THIS ONE
+function getAnimals () {
+  return Promise.all([getDogs(), getCats(), getBirds()])
+    .then((results) => {
+      return results.map((animal) => animal.toUpperCase())
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 }
+
+getAnimals().then((result) => {
+  console.log(result)
+})
 
 module.exports = {
   promiseResolve,
   promiseReject,
   fullPromise,
   getAnimals,
-  promisesChaining,
-};
+  promisesChaining
+}
