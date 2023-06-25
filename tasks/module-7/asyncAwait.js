@@ -1,5 +1,5 @@
-const { promiseResolve, promiseReject } = require('./promises');
-const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
+const { promiseResolve, promiseReject } = require('./promises')
+const { getDogs, getCats, getBirds } = require('./utils/utilPromises')
 /**
  * Materials:
  * - https://javascript.info/async-await
@@ -14,8 +14,9 @@ const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
  * @returns {Promise<"Resolved! with async await">}
  *
  */
-async function asyncPromiseResolve() {
-  //PLACE YOUR CODE HERE:
+async function asyncPromiseResolve () {
+  const result = await promiseResolve()
+  return `${result} with async await`
 }
 
 /**
@@ -24,8 +25,13 @@ async function asyncPromiseResolve() {
  * and modify the message to -> Rejected! with async await
  * @returns {Promise<"Rejected! with async await">}
  */
-async function asyncPromiseReject() {
-  //PLACE YOUR CODE HERE:
+async function asyncPromiseReject () {
+  try {
+    const result = await promiseReject()
+    return `${result} with async await`
+  } catch (e) {
+    return `${e} with async await`
+  }
 }
 
 /**
@@ -35,12 +41,19 @@ async function asyncPromiseReject() {
  * 3. Return the modified array
  * @returns {Promise<"['DOGS', 'CATS', 'BIRDS']">}
  */
-async function asyncPromiseAll() {
-  //PLACE YOUR CODE HERE:
+async function asyncPromiseAll () {
+  try {
+    const results = await Promise.all([getDogs(), getCats(), getBirds()])
+    const modifiedResults = results.map((animal) => animal.toUpperCase())
+    console.log(modifiedResults)
+    return modifiedResults
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 module.exports = {
   asyncPromiseResolve,
   asyncPromiseReject,
-  asyncPromiseAll,
-};
+  asyncPromiseAll
+}
